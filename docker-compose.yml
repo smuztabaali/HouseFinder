@@ -1,0 +1,25 @@
+networks:
+    demonetwork:
+services:
+  housefinderapi:
+    image: ${DOCKER_REGISTRY-}housefinderapi
+    build:
+      context: .
+      dockerfile: HouseFinderAPI/Dockerfile
+    depends_on:
+      - mssql_container
+    ports:
+      - "8001:80"
+    networks:
+      - demonetwork
+
+  mssql_container:
+    container_name: mssql_dockerserverSQL
+    image: mcr.microsoft.com/mssql/server:latest 
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=demopassword123! 
+    ports:
+      - "8002:1433"
+    networks:
+      - demonetwork
