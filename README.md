@@ -148,10 +148,10 @@ Fill it up with some dummy data. I am providing two dummy data.
       "floorNumber": 2,
       "hasLift": true,
       "isAvailable": true,
-      "contactNumber": "01345678189"
+      "contactNumber": "01598453781"
 }
 ```
-Execute it. If everything is alright you should get a response like this.
+Execute the separately it. If everything is alright you should get a response like this.
 
 ```bash
 {
@@ -174,6 +174,31 @@ Execute it. If everything is alright you should get a response like this.
     "hasLift": false,
     "isAvailable": true,
     "contactNumber": "01345678189",
+    "createdAt": "2024-12-02T00:00:00+00:00",
+    "lastUpdatedAt": "2024-12-02T00:00:00+00:00"
+  }
+}
+```
+```bash
+{
+  "statusCode": 201,
+  "isSuccess": true,
+  "errorMessage": null,
+  "result": {
+    "houseId": 2,
+    "houseName": "Ahmad Villa",
+    "sqft": 1500,
+    "houseNoOrRoad": "Sur 294,Sur Taranga Road",
+    "division": "Dhaka",
+    "district": "Dhaka",
+    "city": "Mirpur",
+    "houseAddress": "Ahmad Villa, Sur 294,Sur Taranga Road, Mirpur, Dhaka, Dhaka",
+    "bedNumber": 3,
+    "balconyNumber": 3,
+    "rent": 12000,
+    "floorNumber": 2,
+    "hasLift": true,
+    "isAvailable": true,
     "contactNumber": "01598453781",
     "createdAt": "2024-12-02T00:00:00+00:00",
     "lastUpdatedAt": "2024-12-02T00:00:00+00:00"
@@ -359,3 +384,9 @@ If the id doesn't exist, then the response body should look like this:
   "result": null
 }
 ```
+
+
+
+
+
+
