@@ -32,6 +32,8 @@ http://localhost:8001/swagger/
 
 Here you can do CRUD operation. Normally have to register first as user or admin,then login as user or admin depending on the function you want to perform. But I addedd [AllowAnynomous] here. So anyone can perform CRUD operation here.
 
+**POST/api/UserAuth/register** Endpoint:
+
 Sample Registration as admin,same can be done for the user.
 ```bash
 {
@@ -43,6 +45,16 @@ Sample Registration as admin,same can be done for the user.
   "role": "admin"
 }
 ```
+If successfull then the response should be like this:
+```bash
+{
+  "statusCode": 200,
+  "isSuccess": true,
+  "errorMessage": null,
+  "result": null
+}
+```
+
 Then you can login.
 Sample Login. 
 
@@ -52,7 +64,29 @@ Sample Login.
   "password": "admin"
 }
 ```
-After Successfull login you should get get a Jwt Token. Use it to get authorization.
+Response body should look like this:
+
+```bash
+{
+  "statusCode": 200,
+  "isSuccess": true,
+  "errorMessage": null,
+  "result": {
+    "user": {
+      "id": 1,
+      "userName": "muztaba",
+      "email": "muztaba@gmail.com",
+      "name": "Syed Muztaba Ali",
+      "password": "admin",
+      "role": "admin"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyIxIiwibXV6dGFiYSJdLCJyb2xlIjoiYWRtaW4iLCJuYmYiOjE3MzMxNzY0MjEsImV4cCI6MTczMzI2MjgyMSwiaWF0IjoxNzMzMTc2NDIxfQ.5lxZNCJTCy-v0xE5OsePcXmKPV4OnwRM3GjkAvUsUQU"
+  }
+}
+```
+After Successfull login you should get get a Jwt Token. Use it to get authorization. 
+
+Now let's see CRUD functionality.
 
 **POST/api/v{version}/HouseFinderAPI** Endpoint:
 
